@@ -1,7 +1,6 @@
-package br.edu.ifba.lucasV.avaliacao1.match;
+package br.edu.ifba.lucasV.avaliacao2_caso1.edge.match;
 
-import br.edu.ifba.lucasV.avaliacao1.impl.Player;
-import br.edu.ifba.lucasV.avaliacao1.impl.Statistics;
+import br.edu.ifba.lucasV.avaliacao2_caso1.model.Player;
 
 public interface Match {
 

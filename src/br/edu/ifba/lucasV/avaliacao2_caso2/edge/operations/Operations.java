@@ -1,8 +1,9 @@
-package br.edu.ifba.lucasV.avaliacao1.operations;
+package br.edu.ifba.lucasV.avaliacao2_caso1.cloud.operations;
 
 import java.util.List;
-import br.edu.ifba.lucasV.avaliacao1.impl.Player;
-import br.edu.ifba.lucasV.avaliacao1.match.Match;
+
+import br.edu.ifba.lucasV.avaliacao2_caso1.edge.match.Match;
+import br.edu.ifba.lucasV.avaliacao2_caso1.model.Player;
 
 public interface Operations {
 
