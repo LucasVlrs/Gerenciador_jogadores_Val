@@ -1,6 +1,8 @@
-package br.edu.ifba.lucasV.avaliacao1.impl;
+package br.edu.ifba.lucasV.avaliacao2_caso1.edge.match;
 
-import br.edu.ifba.lucasV.avaliacao1.match.*;
+import br.edu.ifba.lucasV.avaliacao2_caso1.model.Agent;
+import br.edu.ifba.lucasV.avaliacao2_caso1.model.Map;
+import br.edu.ifba.lucasV.avaliacao2_caso1.model.Player;
 
 public class Statistics {
     private Player player;

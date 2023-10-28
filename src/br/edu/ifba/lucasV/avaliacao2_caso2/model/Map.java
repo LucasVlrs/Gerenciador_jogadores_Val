@@ -1,4 +1,4 @@
-package br.edu.ifba.lucasV.avaliacao1.match;
+package br.edu.ifba.lucasV.avaliacao2_caso1.model;
 
 public enum Map {
     ASCENT, BIND, BREEZE, HAVEN, SPLIT, LOTUS, SUNSET

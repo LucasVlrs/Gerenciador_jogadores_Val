@@ -1,9 +1,14 @@
-package br.edu.ifba.lucasV.avaliacao1.impl;
+package br.edu.ifba.lucasV.avaliacao2_caso1.cloud.operations.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import br.edu.ifba.lucasV.avaliacao1.match.Match;
-import br.edu.ifba.lucasV.avaliacao1.operations.Operations;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import br.edu.ifba.lucasV.avaliacao2_caso1.cloud.operations.Operations;
+import br.edu.ifba.lucasV.avaliacao2_caso1.edge.match.Match;
+import br.edu.ifba.lucasV.avaliacao2_caso1.edge.match.impl.MatchImpl;
+import br.edu.ifba.lucasV.avaliacao2_caso1.model.Player;
 
 public class OperationsImpl implements Operations {
 
@@ -11,15 +16,32 @@ public class OperationsImpl implements Operations {
     // pirntStatistics() possui um loop for.
     @Override
     public void playMatch(List<Player> players, List<Match> matches, int NO_OF_MATCHES_PLAYED_AT_ONCE, int matchId) {
+        ExecutorService executorService = Executors.newFixedThreadPool(players.size());
+        
         for (Player player : players) {
-            for (int i = 0; i < NO_OF_MATCHES_PLAYED_AT_ONCE; i++) {
-                Match m = new MatchImpl(matchId);
-                matchId++;
-                m.addStatistics(m.generateStatistics(player));
-                matches.add(m);
-                m.printStatistics();
-            }
+            Runnable playerTask = () -> {
+                for (int i = 0; i < NO_OF_MATCHES_PLAYED_AT_ONCE; i++) {
+                    Match m = new MatchImpl(matchId);
+                    m.addStatistics(m.generateStatistics(player));
+                    synchronized (matches) {
+                        matches.add(m);
+                    }
+                    synchronized (System.out) {
+                        m.printStatistics();
+                        try {
+                            Thread.sleep(0);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            };
+    
+            executorService.execute(playerTask);
         }
+    
+        executorService.shutdown();
+        while (!executorService.isTerminated()) {}
     }
 
     // COMPLEXIDADE: O(n); Sendo n o número de players, faz operações simples, é

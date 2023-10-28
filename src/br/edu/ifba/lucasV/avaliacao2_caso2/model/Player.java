@@ -1,4 +1,4 @@
-package br.edu.ifba.lucasV.avaliacao1.impl;
+package br.edu.ifba.lucasV.avaliacao2_caso1.model;
 
 import java.util.Random;
 

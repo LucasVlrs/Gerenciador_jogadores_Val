@@ -1,12 +1,14 @@
-package br.edu.ifba.lucasV.avaliacao1.impl;
+package br.edu.ifba.lucasV.avaliacao2_caso1.edge.match.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import br.edu.ifba.lucasV.avaliacao1.match.Agent;
-import br.edu.ifba.lucasV.avaliacao1.match.Map;
-import br.edu.ifba.lucasV.avaliacao1.match.Match;
+import br.edu.ifba.lucasV.avaliacao2_caso1.edge.match.Match;
+import br.edu.ifba.lucasV.avaliacao2_caso1.edge.match.Statistics;
+import br.edu.ifba.lucasV.avaliacao2_caso1.model.Agent;
+import br.edu.ifba.lucasV.avaliacao2_caso1.model.Map;
+import br.edu.ifba.lucasV.avaliacao2_caso1.model.Player;
 
 public class MatchImpl implements Match {
 
